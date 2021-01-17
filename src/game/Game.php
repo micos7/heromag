@@ -1,5 +1,7 @@
 <?php
 namespace Hero\game;
+
+use Hero\factory\Factory;
 use Hero\players\Beast;
 use Hero\players\Hero;
 use Hero\skills\Strike;
@@ -20,7 +22,7 @@ class Game {
 
     private function createHero(){
 
-        $this->hero = new Hero();
+        $this->hero = Factory::getPlayer('Hero');
         $this->hero->setPlayerName($this->hero::NAME);
         $this->hero->setHealth(rand($this->hero::STATS['MIN_HEALTH'],$this->hero::STATS['MAX_HEALTH']));
         $this->hero->setStrength(rand($this->hero::STATS['MIN_STRENGTH'],$this->hero::STATS['MAX_STRENGTH']));
@@ -35,7 +37,7 @@ class Game {
 
     private function createBeast(){
 
-        $this->beast = new Beast();
+        $this->beast = Factory::getPlayer('Beast');
         $this->beast->setPlayerName($this->beast::NAME);
         $this->beast->setHealth(rand($this->beast::STATS['MIN_HEALTH'],$this->beast::STATS['MAX_HEALTH']));
         $this->beast->setStrength(rand($this->beast::STATS['MIN_STRENGTH'],$this->beast::STATS['MAX_STRENGTH']));
