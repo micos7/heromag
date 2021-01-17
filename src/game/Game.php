@@ -22,7 +22,7 @@ class Game {
 
     private function createHero(){
 
-        $this->hero = Factory::getPlayer('Hero');
+        $this->hero = Factory::getPlayer(Hero::class);
         $this->hero->setPlayerName($this->hero::NAME);
         $this->hero->setHealth(rand($this->hero::STATS['MIN_HEALTH'],$this->hero::STATS['MAX_HEALTH']));
         $this->hero->setStrength(rand($this->hero::STATS['MIN_STRENGTH'],$this->hero::STATS['MAX_STRENGTH']));
@@ -37,7 +37,7 @@ class Game {
 
     private function createBeast(){
 
-        $this->beast = Factory::getPlayer('Beast');
+        $this->beast = Factory::getPlayer(Beast::class);
         $this->beast->setPlayerName($this->beast::NAME);
         $this->beast->setHealth(rand($this->beast::STATS['MIN_HEALTH'],$this->beast::STATS['MAX_HEALTH']));
         $this->beast->setStrength(rand($this->beast::STATS['MIN_STRENGTH'],$this->beast::STATS['MAX_STRENGTH']));
